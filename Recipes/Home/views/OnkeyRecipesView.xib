@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OnkeyRecipesView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnA-SS-gfF">
+                    <rect key="frame" x="75" y="221" width="225" height="225"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="fnA-SS-gfF" secondAttribute="height" multiplier="1:1" id="Qf9-iY-fOA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="一键生成">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onOnekeyClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="t7r-ES-djt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.17645972967147827" green="0.79393064975738525" blue="0.46722280979156494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnA-SS-gfF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BGW-H5-jp1"/>
+                <constraint firstItem="fnA-SS-gfF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="qS1-D1-TLV"/>
+                <constraint firstItem="fnA-SS-gfF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="r81-9i-Vgv"/>
+            </constraints>
+            <connections>
+                <outlet property="onkeyBtn" destination="fnA-SS-gfF" id="Klr-6N-Ckd"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="184"/>
+        </view>
+    </objects>
+</document>

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DataBaseManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //初始化数据库
+    [[DataBaseManager defaultManager] setUp];
     return YES;
 }
 
