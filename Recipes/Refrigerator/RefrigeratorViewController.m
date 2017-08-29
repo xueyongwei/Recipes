@@ -8,6 +8,7 @@
 
 #import "RefrigeratorViewController.h"
 #import "FoodTableViewController.h"
+#import "AddFoodViewController.h"
 @interface RefrigeratorViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topMenuScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *bodyScrollView;
@@ -28,6 +29,13 @@
     
     // Do any additional setup after loading the view.
 }
+- (IBAction)onAddFoodClick:(id)sender {
+    AddFoodViewController *addvc = [[AddFoodViewController alloc]initWithNibName:@"AddFoodViewController" bundle:nil];
+    [self.navigationController pushViewController:addvc animated:YES];
+}
+
+
+
 -(void)customChildVC{
     for (NSInteger i=0; i<5; i++) {
         

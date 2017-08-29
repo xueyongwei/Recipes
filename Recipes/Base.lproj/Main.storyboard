@@ -264,7 +264,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="料理冰箱" id="aWo-Fm-rRM">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="TbO-II-DPn"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="TbO-II-DPn">
+                            <connections>
+                                <action selector="onAddFoodClick:" destination="52i-VM-QLR" id="Qah-L9-sIt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyScrollView" destination="eiq-nH-kUU" id="b1H-af-Pas"/>

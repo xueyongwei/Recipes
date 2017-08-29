@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger,FoodType){
 @interface FoodModel : NSObject
 
 /**
+ 食材ID
+ */
+@property (nonatomic,assign) NSInteger foodid;
+
+/**
  食材名
  */
 @property (nonatomic,copy) NSString *name;
@@ -61,5 +66,5 @@ typedef NS_ENUM(NSInteger,FoodType){
  */
 @property (nonatomic,strong) NSDate *putRefDate;
 
-+(instancetype)FoodWithName:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate;
++(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate;
 @end

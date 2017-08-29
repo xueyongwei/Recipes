@@ -8,6 +8,8 @@
 
 #import "FoodTableViewController.h"
 #import "RefrigeratorTableViewCell.h"
+#import "AddFoodViewController.h"
+
 @interface FoodTableViewController ()
 
 @end
@@ -28,6 +30,9 @@
     self.tableView.rowHeight = 60;
     
 }
+
+
+
 -(NSString *)foodStringOfType:(FoodType)type
 {
     switch (type) {
