@@ -10,6 +10,7 @@
 #import <FMDB.h>
 #import "FoodModel.h"
 
+#define kFoodTableName @"t_foods"
 
 @interface DataBaseManager : NSObject
 @property (nonatomic,strong) FMDatabaseQueue *dbQueue;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YVk-E0-NPa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YVk-E0-NPa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ts4-77-uzU" id="fx2-xo-X79">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -82,7 +82,7 @@
         <!--食谱-->
         <scene sceneID="JUT-xg-ncm">
             <objects>
-                <tableViewController id="BEn-q8-vNa" sceneMemberID="viewController">
+                <tableViewController id="BEn-q8-vNa" customClass="RecipesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aGM-t5-XrW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="icD-NE-437" id="IRd-ot-6pE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -106,13 +106,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxs-xX-zXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="1683"/>
+            <point key="canvasLocation" x="36" y="1728"/>
         </scene>
         <!--食谱-->
         <scene sceneID="Kuk-Jj-5uC">
             <objects>
                 <navigationController id="WtE-FI-2ub" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="食谱" id="zyD-OS-hIN"/>
+                    <tabBarItem key="tabBarItem" title="食谱" image="fork" selectedImage="fork_s" id="zyD-OS-hIN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GlY-Ro-qhW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -129,7 +129,7 @@
         <scene sceneID="Oyq-KF-h1a">
             <objects>
                 <navigationController id="h6t-Nx-3Na" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="冰箱" id="Qfg-J5-Z3H"/>
+                    <tabBarItem key="tabBarItem" title="冰箱" image="refri" selectedImage="refri_s" id="Qfg-J5-Z3H"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PQ3-dq-eFd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -251,11 +251,36 @@
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-nH-kUU">
                                 <rect key="frame" x="0.0" y="114" width="375" height="504"/>
                             </scrollView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zx-GS-rSa">
+                                <rect key="frame" x="143" y="554" width="88" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8UY-Va-tms"/>
+                                    <constraint firstAttribute="width" constant="88" id="AxZ-da-v0M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="添加">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onRecommend:" destination="52i-VM-QLR" eventType="touchUpInside" id="yvH-Fe-BKK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2zx-GS-rSa" firstAttribute="centerX" secondItem="VPT-HX-eqi" secondAttribute="centerX" id="9aE-5z-Bk0"/>
                             <constraint firstAttribute="trailing" secondItem="KAO-gr-hQk" secondAttribute="trailing" id="E8l-eu-Wnd"/>
                             <constraint firstItem="eiq-nH-kUU" firstAttribute="leading" secondItem="VPT-HX-eqi" secondAttribute="leading" id="Is2-hq-qCr"/>
+                            <constraint firstItem="yjQ-SR-jUH" firstAttribute="top" secondItem="2zx-GS-rSa" secondAttribute="bottom" constant="20" id="OWL-De-eEj"/>
                             <constraint firstItem="KAO-gr-hQk" firstAttribute="leading" secondItem="VPT-HX-eqi" secondAttribute="leading" id="Qki-dE-6vs"/>
                             <constraint firstAttribute="trailing" secondItem="eiq-nH-kUU" secondAttribute="trailing" id="U4M-A4-BmO"/>
                             <constraint firstItem="eiq-nH-kUU" firstAttribute="top" secondItem="KAO-gr-hQk" secondAttribute="bottom" id="gmQ-Hg-BOi"/>
@@ -272,6 +297,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bodyScrollView" destination="eiq-nH-kUU" id="b1H-af-Pas"/>
+                        <outlet property="choseThoseFoodBtn" destination="2zx-GS-rSa" id="IFA-lu-uxn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgs-n7-7KK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -297,7 +323,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fork" width="40" height="40"/>
+        <image name="fork_s" width="40" height="40"/>
         <image name="home" width="40" height="40"/>
         <image name="home_s" width="40" height="40"/>
+        <image name="refri" width="40" height="40"/>
+        <image name="refri_s" width="40" height="40"/>
     </resources>
 </document>

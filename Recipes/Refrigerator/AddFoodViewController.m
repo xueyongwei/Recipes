@@ -58,9 +58,12 @@
     // 将searchBar赋值给tableView的tableHeaderView
     self.tableView.tableHeaderView = search.searchBar;
    
+    
     [self prepareData];
+  
     // Do any additional setup after loading the view from its nib.
 }
+
 -(void)prepareData{
     NSArray *data =  [[DataBaseManager defaultManager] quryAllFoods];
     NSLog(@"%@",data);
@@ -103,13 +106,38 @@
     
     if (self.searchController.active) {
         NSLog(@"选择了搜索结果中的%@", [self.results objectAtIndex:indexPath.row]);
+        FoodModel *food = self.results[indexPath.row];
+        [self wannaAddFood:food];
     } else {
-        
+        FoodModel *food = self.datas[indexPath.row];
+        [self wannaAddFood:food];
         NSLog(@"选择了列表中的%@", [self.datas objectAtIndex:indexPath.row]);
     }
+}
+-(void)wannaAddFood:(FoodModel *)food
+{
+    NSString *message = [NSString stringWithFormat:@"添加多少%@?",food.unit];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:food.name message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"添加" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //更新这个食材的信息
+        food.amount =  alert.textFields.firstObject.text.floatValue;
+        food.putRefDate = [NSDate date];
+        //放入冰箱新本地数据库
+        [food putIntoRefiAndUpdateDataBase];
+        //发个通知，添加进了一个食材到冰箱里
+        [[NSNotificationCenter defaultCenter] postNotificationName:kHaveAddOneFoodNoti object:food];
+    }];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.keyboardType = UIKeyboardTypeDecimalPad;
+    }];
+    [alert addAction:sure];
+    [alert addAction:cancle];
+    [self presentViewController:alert animated:YES completion:nil];
     
 }
-
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     //输入的文字

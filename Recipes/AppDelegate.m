@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DataBaseManager.h"
-
+#import "RecipesManager.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +20,9 @@
     // Override point for customization after application launch.
     //初始化数据库
     [[DataBaseManager defaultManager] setUp];
+    //初始化菜单数据
+    [[RecipesManager defaultManager] setUp];
+    
     return YES;
 }
 

@@ -15,5 +15,6 @@
 //加入需要的头文件
 #import <YYKit.h>
 #import <Masonry.h>
+#import "DataBaseManager.h"
 #endif
 #endif /* PrefixHeader_pch */

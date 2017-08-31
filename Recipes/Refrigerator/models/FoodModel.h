@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 typedef NS_ENUM(NSInteger,FoodType){
-    FoodTypeVegetables,
-    FoodTypeFruits,
+    FoodTypeVegetables=1,
     FoodTypeMeat,
     FoodTypeFish,
+    FoodTypeFruits,
     FoodTypeOther,
 };
 @interface FoodModel : NSObject
@@ -66,5 +66,26 @@ typedef NS_ENUM(NSInteger,FoodType){
  */
 @property (nonatomic,strong) NSDate *putRefDate;
 
-+(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate;
+/**
+ 数量
+ */
+@property (nonatomic,assign) CGFloat amount;
+
+/**
+ 计量单位
+ */
+@property (nonatomic,copy) NSString *unit;
+
+
++(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate unit:(NSString *)unit;
+
+-(void)putIntoRefiAndUpdateDataBase;
+
+
+/**
+ 重写des方法
+
+ @return des
+ */
+-(NSString *)description;
 @end

@@ -11,7 +11,7 @@
 #import "AddFoodViewController.h"
 
 @interface FoodTableViewController ()
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 @implementation FoodTableViewController
@@ -19,20 +19,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customTableView];
+    self.dataSource = [[NSMutableArray alloc]init];
+    [self refreshData];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+/**
+ 刷新数据
+ */
+-(void)refreshData{
+    //清空一下数据
+    [self.dataSource removeAllObjects];
+    for (FoodModel *food in self.allFoods) {
+        NSLog(@"species = %ld self.foodType= %ld",food.species,self.foodType);
+        if (food.species == self.foodType) {//是当前的类型
+            //添加到数据源
+            [self.dataSource addObject:food];
+        }
+        //刷新界面显示
+        [self.tableView reloadData];
+    }
+}
 -(void)customTableView{
     [self.tableView registerNib:[UINib nibWithNibName:@"RefrigeratorTableViewCell" bundle:nil] forCellReuseIdentifier:@"RefrigeratorTableViewCell"];
     self.tableView.rowHeight = 60;
-    
+    self.tableView.allowsMultipleSelection = YES;
 }
 
+/**
+ 返回食材种类对应的中文名字
 
-
+ @param type 类型
+ @return 名字
+ */
 -(NSString *)foodStringOfType:(FoodType)type
 {
     switch (type) {
@@ -70,13 +95,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 10;
+    return self.dataSource.count;
 }
 
 
@@ -87,7 +110,16 @@
     
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodModel *food = self.dataSource[indexPath.row];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kSelectedFoodNoti object:food];
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodModel *food = self.dataSource[indexPath.row];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kDeSelectedFoodNoti object:food];
+}
 
 /*
 // Override to support conditional editing of the table view.

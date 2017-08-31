@@ -7,7 +7,7 @@
 //
 
 #import "RecipesTableViewController.h"
-
+#import "RecipesManager.h"
 @interface RecipesTableViewController ()
 
 @end
@@ -16,12 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self customTableView];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)customTableView{
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +36,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [RecipesManager defaultManager].allRecipes.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
+    RecipesModel *model = [RecipesManager defaultManager].allRecipes[indexPath.row];
+    cell.textLabel.text = model.name;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

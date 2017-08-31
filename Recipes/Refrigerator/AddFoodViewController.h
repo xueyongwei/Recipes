@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define kHaveAddOneFoodNoti @"HaveAddOneFoodNoti"
 @interface AddFoodViewController : UIViewController
 
 @end

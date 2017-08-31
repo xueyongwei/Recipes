@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RecipesManager.h"
 @interface RecipesDetailViewController : UIViewController
-
+@property (nonatomic,strong) RecipesModel *recipe;
 @end
