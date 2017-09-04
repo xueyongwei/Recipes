@@ -21,9 +21,12 @@
 -(void)customTableView
 {
     OnkeyRecipesView *onekey = [[[NSBundle mainBundle]loadNibNamed:@"OnkeyRecipesView" owner:self options:nil]lastObject];
-    onekey.frame = CGRectMake(0, 0, YYScreenSize().width, YYScreenSize().width);
-    self.tableView.tableHeaderView = onekey;
+    CGFloat heightPer = 1169.0/1177.0;
     
+    onekey.frame = CGRectMake(0, 0, YYScreenSize().width, YYScreenSize().width*heightPer);
+    self.tableView.tableHeaderView = onekey;
+    self.view.backgroundColor = [UIColor colorWithHexString:@"ededed"];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"ededed"];
     
 }
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,8 @@
 #import "FoodModel.h"
 @interface RefrigeratorTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *naleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expDayLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkImgView;

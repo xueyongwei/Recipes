@@ -48,8 +48,13 @@
 }
 -(void)customTableView{
     [self.tableView registerNib:[UINib nibWithNibName:@"RefrigeratorTableViewCell" bundle:nil] forCellReuseIdentifier:@"RefrigeratorTableViewCell"];
-    self.tableView.rowHeight = 60;
+    self.tableView.rowHeight = 80;
     self.tableView.allowsMultipleSelection = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.view.backgroundColor = [UIColor colorWithHexString:@"F2F2F2"];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"F2F2F2"];
+//    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.1)];
 }
 
 /**

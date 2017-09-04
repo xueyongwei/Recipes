@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     // Initialization code
 }
 -(void)setFood:(FoodModel *)food
@@ -20,6 +21,7 @@
     self.naleLabel.text = food.name;
     self.amountLabel.text = [NSString stringWithFormat:@"%.1f%@",food.amount,food.unit];
     self.expDayLabel.text =  [self maxDay];
+    self.imgView.image = [UIImage imageNamed:food.name];
 }
 -(NSString *)maxDay{
     //过期的日期

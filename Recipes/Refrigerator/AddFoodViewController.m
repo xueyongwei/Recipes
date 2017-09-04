@@ -8,6 +8,7 @@
 
 #import "AddFoodViewController.h"
 #import "DataBaseManager.h"
+#import "FoodTableViewCell.h"
 @interface AddFoodViewController () <UITableViewDelegate,UITableViewDataSource,UISearchResultsUpdating>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
@@ -24,6 +25,9 @@
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        [_tableView registerNib:[UINib nibWithNibName:@"FoodTableViewCell" bundle:nil] forCellReuseIdentifier:@"FoodTableViewCell"];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
+        _tableView.rowHeight = 50;
         [self.view addSubview:_tableView];
     }
     
@@ -85,21 +89,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
-    }
-    
     // 这里通过searchController的active属性来区分展示数据源是哪个
     if (self.searchController.active ) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
         FoodModel *food = [self.results objectAtIndex:indexPath.row];
         cell.textLabel.text = food.name;
+        return cell;
     } else {
+        FoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodTableViewCell"];
         FoodModel *food = [self.datas objectAtIndex:indexPath.row];
-        cell.textLabel.text = food.name;
+        cell.nameLabel.text = food.name;
+        cell.imgView.image = [UIImage imageNamed:food.name];
+        cell.jLabel.text = [NSString stringWithFormat:@"能量:%ldJ",food.calorie];
+        return cell;
     }
     
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

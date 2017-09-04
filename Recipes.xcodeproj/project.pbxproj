@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4728F7261F59CD9A0010CE26 /* RecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7251F59CD9A0010CE26 /* RecommendModel.m */; };
 		4728F7291F5B00820010CE26 /* HealthIntakeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7281F5B00820010CE26 /* HealthIntakeHelper.m */; };
+		4728F72D1F5D9DBB0010CE26 /* FoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F72B1F5D9DBB0010CE26 /* FoodTableViewCell.m */; };
+		4728F72E1F5D9DBB0010CE26 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F72C1F5D9DBB0010CE26 /* FoodTableViewCell.xib */; };
+		4728F7321F5DA09E0010CE26 /* RecipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7301F5DA09E0010CE26 /* RecipTableViewCell.m */; };
+		4728F7331F5DA09E0010CE26 /* RecipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7311F5DA09E0010CE26 /* RecipTableViewCell.xib */; };
 		475FEF121F51A2760047059F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF111F51A2760047059F /* main.m */; };
 		475FEF151F51A2760047059F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF141F51A2760047059F /* AppDelegate.m */; };
 		475FEF1B1F51A2760047059F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475FEF191F51A2760047059F /* Main.storyboard */; };
@@ -148,6 +152,12 @@
 		4728F7251F59CD9A0010CE26 /* RecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendModel.m; sourceTree = "<group>"; };
 		4728F7271F5B00820010CE26 /* HealthIntakeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthIntakeHelper.h; sourceTree = "<group>"; };
 		4728F7281F5B00820010CE26 /* HealthIntakeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthIntakeHelper.m; sourceTree = "<group>"; };
+		4728F72A1F5D9DBB0010CE26 /* FoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTableViewCell.h; sourceTree = "<group>"; };
+		4728F72B1F5D9DBB0010CE26 /* FoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTableViewCell.m; sourceTree = "<group>"; };
+		4728F72C1F5D9DBB0010CE26 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
+		4728F72F1F5DA09E0010CE26 /* RecipTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipTableViewCell.h; sourceTree = "<group>"; };
+		4728F7301F5DA09E0010CE26 /* RecipTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipTableViewCell.m; sourceTree = "<group>"; };
+		4728F7311F5DA09E0010CE26 /* RecipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipTableViewCell.xib; sourceTree = "<group>"; };
 		475FEF0D1F51A2760047059F /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FEF111F51A2760047059F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		475FEF131F51A2760047059F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -461,6 +471,9 @@
 				475FEF531F5275900047059F /* RefrigeratorTableViewCell.h */,
 				475FEF541F5275900047059F /* RefrigeratorTableViewCell.m */,
 				475FEF551F5275900047059F /* RefrigeratorTableViewCell.xib */,
+				4728F72A1F5D9DBB0010CE26 /* FoodTableViewCell.h */,
+				4728F72B1F5D9DBB0010CE26 /* FoodTableViewCell.m */,
+				4728F72C1F5D9DBB0010CE26 /* FoodTableViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -479,6 +492,9 @@
 		475FEF4A1F51D9B60047059F /* views */ = {
 			isa = PBXGroup;
 			children = (
+				4728F72F1F5DA09E0010CE26 /* RecipTableViewCell.h */,
+				4728F7301F5DA09E0010CE26 /* RecipTableViewCell.m */,
+				4728F7311F5DA09E0010CE26 /* RecipTableViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -709,12 +725,14 @@
 				8593E3881F58225A00EFFF75 /* 40.png in Resources */,
 				8593E35D1F58225A00EFFF75 /* 100.png in Resources */,
 				8593E3AA1F58225A00EFFF75 /* 74.png in Resources */,
+				4728F7331F5DA09E0010CE26 /* RecipTableViewCell.xib in Resources */,
 				8593E38A1F58225A00EFFF75 /* 42.png in Resources */,
 				8593E3B01F58225A00EFFF75 /* 80.png in Resources */,
 				8593E3991F58225A00EFFF75 /* 57.png in Resources */,
 				8593E3AE1F58225A00EFFF75 /* 78.png in Resources */,
 				8593E3921F58225A00EFFF75 /* 50.png in Resources */,
 				8593E3961F58225A00EFFF75 /* 54.png in Resources */,
+				4728F72E1F5D9DBB0010CE26 /* FoodTableViewCell.xib in Resources */,
 				8593E3751F58225A00EFFF75 /* 124.png in Resources */,
 				8593E3BD1F58225A00EFFF75 /* 93.png in Resources */,
 				8593E3821F58225A00EFFF75 /* 34.png in Resources */,
@@ -852,7 +870,9 @@
 				475FEF151F51A2760047059F /* AppDelegate.m in Sources */,
 				475FEF3D1F51ACB80047059F /* RecipesTableViewController.m in Sources */,
 				475FEF431F51ACED0047059F /* OnkeyRecipesView.m in Sources */,
+				4728F7321F5DA09E0010CE26 /* RecipTableViewCell.m in Sources */,
 				4728F7261F59CD9A0010CE26 /* RecommendModel.m in Sources */,
+				4728F72D1F5D9DBB0010CE26 /* FoodTableViewCell.m in Sources */,
 				475FEF4D1F51D9D90047059F /* RecipesDetailViewController.m in Sources */,
 				475FEF291F51A3EA0047059F /* RootViewController.m in Sources */,
 				8593E3C71F58228000EFFF75 /* RecommendingViewController.m in Sources */,
