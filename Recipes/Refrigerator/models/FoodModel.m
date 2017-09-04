@@ -9,7 +9,7 @@
 #import "FoodModel.h"
 
 @implementation FoodModel
-+(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate unit:(NSString *)unit{
++(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate amount:(CGFloat)amount unit:(NSString *)unit{
     FoodModel *food = [[FoodModel alloc]init];
     food.foodid = foodid;
     food.name = name;
@@ -22,7 +22,7 @@
     food.inRefigerator = inRefigerator;
     food.putRefDate = putRefDate;
     food.unit = unit;
-    
+    food.amount = amount;
     return food;
 }
 /**
@@ -42,4 +42,25 @@
         NSLog(@"%@", isSuccess ? @"插入食材数据成功" : @"插入食材数据失败");
     }];
 }
+
+/**
+ 食材声音日期
+ 
+ @return 剩余的天数
+ */
+-(NSInteger)remainingDays{
+    //过期的日期
+    NSDate *expedDate = [self.putRefDate dateByAddingDays:self.maxDay];
+    //现在的日期
+    NSDate *nowDate = [NSDate date];
+    //计算剩余的时间
+    NSTimeInterval exp = [expedDate timeIntervalSince1970];
+    NSTimeInterval now = [nowDate timeIntervalSince1970];
+    NSInteger time = (exp-now)/86400;
+    
+    return time;
+}
+
+
+
 @end

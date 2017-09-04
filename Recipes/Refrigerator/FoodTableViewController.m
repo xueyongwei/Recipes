@@ -105,7 +105,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RefrigeratorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RefrigeratorTableViewCell" forIndexPath:indexPath];
-    
+    FoodModel *food = self.dataSource[indexPath.row];
+    cell.food = food;
     // Configure the cell...
     
     return cell;

@@ -77,8 +77,12 @@ typedef NS_ENUM(NSInteger,FoodType){
 @property (nonatomic,copy) NSString *unit;
 
 
-+(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate unit:(NSString *)unit;
++(instancetype)FoodWithFoodid:(NSInteger)foodid Name:(NSString *)name species:(NSInteger)species maxDay:(NSInteger)maxDay calorie:(NSInteger)calorie carbohydrate:(CGFloat)carbohydrate vitamin:(CGFloat)vitamin protein:(CGFloat)protein inRefigerator:(BOOL)inRefigerator putRefDate:(NSDate *)putRefDate amount:(CGFloat)amount unit:(NSString *)unit;
 
+
+/**
+ 将食材放入冰箱，并更新本地数据库
+ */
 -(void)putIntoRefiAndUpdateDataBase;
 
 
@@ -88,4 +92,13 @@ typedef NS_ENUM(NSInteger,FoodType){
  @return des
  */
 -(NSString *)description;
+
+
+/**
+ 食材声音日期
+
+ @return 剩余的天数
+ */
+-(NSInteger)remainingDays;
+
 @end

@@ -13,4 +13,6 @@
 @property (nonatomic,copy) NSString *seasoning;
 @property (nonatomic,strong) NSArray *ingredients;
 @property (nonatomic,strong) NSArray *steps;
+
+
 @end

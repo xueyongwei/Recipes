@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4728F7261F59CD9A0010CE26 /* RecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7251F59CD9A0010CE26 /* RecommendModel.m */; };
+		4728F7291F5B00820010CE26 /* HealthIntakeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7281F5B00820010CE26 /* HealthIntakeHelper.m */; };
 		475FEF121F51A2760047059F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF111F51A2760047059F /* main.m */; };
 		475FEF151F51A2760047059F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF141F51A2760047059F /* AppDelegate.m */; };
 		475FEF1B1F51A2760047059F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475FEF191F51A2760047059F /* Main.storyboard */; };
@@ -142,6 +144,10 @@
 
 /* Begin PBXFileReference section */
 		13B0E66D678D9077DEDA70D0 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		4728F7241F59CD9A0010CE26 /* RecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendModel.h; sourceTree = "<group>"; };
+		4728F7251F59CD9A0010CE26 /* RecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendModel.m; sourceTree = "<group>"; };
+		4728F7271F5B00820010CE26 /* HealthIntakeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthIntakeHelper.h; sourceTree = "<group>"; };
+		4728F7281F5B00820010CE26 /* HealthIntakeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthIntakeHelper.m; sourceTree = "<group>"; };
 		475FEF0D1F51A2760047059F /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FEF111F51A2760047059F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		475FEF131F51A2760047059F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -387,6 +393,8 @@
 				8593E2241F581AB100EFFF75 /* RecipesDetailViewController.xib */,
 				8593E2211F5819DC00EFFF75 /* RecipersRecomendHelper.h */,
 				8593E2221F5819DC00EFFF75 /* RecipersRecomendHelper.m */,
+				4728F7271F5B00820010CE26 /* HealthIntakeHelper.h */,
+				4728F7281F5B00820010CE26 /* HealthIntakeHelper.m */,
 				8593E3C41F58228000EFFF75 /* RecommendingViewController.h */,
 				8593E3C51F58228000EFFF75 /* RecommendingViewController.m */,
 				8593E3C61F58228000EFFF75 /* RecommendingViewController.xib */,
@@ -462,6 +470,8 @@
 			children = (
 				8593E21B1F57FBC500EFFF75 /* RecipesModel.h */,
 				8593E21C1F57FBC500EFFF75 /* RecipesModel.m */,
+				4728F7241F59CD9A0010CE26 /* RecommendModel.h */,
+				4728F7251F59CD9A0010CE26 /* RecommendModel.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -842,6 +852,7 @@
 				475FEF151F51A2760047059F /* AppDelegate.m in Sources */,
 				475FEF3D1F51ACB80047059F /* RecipesTableViewController.m in Sources */,
 				475FEF431F51ACED0047059F /* OnkeyRecipesView.m in Sources */,
+				4728F7261F59CD9A0010CE26 /* RecommendModel.m in Sources */,
 				475FEF4D1F51D9D90047059F /* RecipesDetailViewController.m in Sources */,
 				475FEF291F51A3EA0047059F /* RootViewController.m in Sources */,
 				8593E3C71F58228000EFFF75 /* RecommendingViewController.m in Sources */,
@@ -851,6 +862,7 @@
 				8593E2231F5819DC00EFFF75 /* RecipersRecomendHelper.m in Sources */,
 				475FEF611F5454060047059F /* AddFoodViewController.m in Sources */,
 				475FEF561F5275900047059F /* RefrigeratorTableViewCell.m in Sources */,
+				4728F7291F5B00820010CE26 /* HealthIntakeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
