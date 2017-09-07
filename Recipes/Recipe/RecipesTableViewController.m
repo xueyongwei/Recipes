@@ -8,6 +8,7 @@
 
 #import "RecipesTableViewController.h"
 #import "RecipesManager.h"
+#import "RecipTableViewCell.h"
 @interface RecipesTableViewController ()
 
 @end
@@ -26,6 +27,11 @@
 }
 -(void)customTableView{
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RecipTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecipTableViewCell"];
+    self.tableView.rowHeight = 100;
+    self.view.backgroundColor = [UIColor colorWithHexString:@"F2F2F2"];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"F2F2F2"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +52,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
+    RecipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipTableViewCell" forIndexPath:indexPath];
     RecipesModel *model = [RecipesManager defaultManager].allRecipes[indexPath.row];
-    cell.textLabel.text = model.name;
+    cell.titleLabel.text = model.name;
+    cell.iconImgView.image = [UIImage imageNamed:model.name];
+    cell.bgImgView.image = [UIImage imageNamed:model.name];
     
     return cell;
 }

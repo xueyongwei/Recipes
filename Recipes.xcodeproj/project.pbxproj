@@ -13,6 +13,24 @@
 		4728F72E1F5D9DBB0010CE26 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F72C1F5D9DBB0010CE26 /* FoodTableViewCell.xib */; };
 		4728F7321F5DA09E0010CE26 /* RecipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7301F5DA09E0010CE26 /* RecipTableViewCell.m */; };
 		4728F7331F5DA09E0010CE26 /* RecipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7311F5DA09E0010CE26 /* RecipTableViewCell.xib */; };
+		4728F7431F6193890010CE26 /* 土豆烧肉.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7351F6193890010CE26 /* 土豆烧肉.png */; };
+		4728F7441F6193890010CE26 /* 地三鲜.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7361F6193890010CE26 /* 地三鲜.png */; };
+		4728F7451F6193890010CE26 /* 小炒牛肉.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7371F6193890010CE26 /* 小炒牛肉.png */; };
+		4728F7461F6193890010CE26 /* 水果沙拉.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7381F6193890010CE26 /* 水果沙拉.png */; };
+		4728F7471F6193890010CE26 /* 油焖大虾.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7391F6193890010CE26 /* 油焖大虾.png */; };
+		4728F7481F6193890010CE26 /* 洋葱肉末盖浇饭.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73A1F6193890010CE26 /* 洋葱肉末盖浇饭.png */; };
+		4728F7491F6193890010CE26 /* 夏威夷风味烤三文鱼.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73B1F6193890010CE26 /* 夏威夷风味烤三文鱼.png */; };
+		4728F74A1F6193890010CE26 /* 番茄炒蛋.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73C1F6193890010CE26 /* 番茄炒蛋.png */; };
+		4728F74B1F6193890010CE26 /* 番茄牛肉.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73D1F6193890010CE26 /* 番茄牛肉.png */; };
+		4728F74C1F6193890010CE26 /* 番茄蛋花汤.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73E1F6193890010CE26 /* 番茄蛋花汤.png */; };
+		4728F74D1F6193890010CE26 /* 白灼明虾.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F73F1F6193890010CE26 /* 白灼明虾.png */; };
+		4728F74E1F6193890010CE26 /* 红烧肉.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7401F6193890010CE26 /* 红烧肉.png */; };
+		4728F74F1F6193890010CE26 /* 肉末茄子.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7411F6193890010CE26 /* 肉末茄子.png */; };
+		4728F7501F6193890010CE26 /* 黄瓜凉面.png in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7421F6193890010CE26 /* 黄瓜凉面.png */; };
+		4728F7541F619FDD0010CE26 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7521F619FDD0010CE26 /* LoginViewController.m */; };
+		4728F7551F619FDD0010CE26 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7531F619FDD0010CE26 /* LoginViewController.xib */; };
+		4728F7591F61A2260010CE26 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728F7571F61A2260010CE26 /* HomeTableViewCell.m */; };
+		4728F75A1F61A2260010CE26 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4728F7581F61A2260010CE26 /* HomeTableViewCell.xib */; };
 		475FEF121F51A2760047059F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF111F51A2760047059F /* main.m */; };
 		475FEF151F51A2760047059F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 475FEF141F51A2760047059F /* AppDelegate.m */; };
 		475FEF1B1F51A2760047059F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475FEF191F51A2760047059F /* Main.storyboard */; };
@@ -158,6 +176,26 @@
 		4728F72F1F5DA09E0010CE26 /* RecipTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipTableViewCell.h; sourceTree = "<group>"; };
 		4728F7301F5DA09E0010CE26 /* RecipTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipTableViewCell.m; sourceTree = "<group>"; };
 		4728F7311F5DA09E0010CE26 /* RecipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipTableViewCell.xib; sourceTree = "<group>"; };
+		4728F7351F6193890010CE26 /* 土豆烧肉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "土豆烧肉.png"; sourceTree = "<group>"; };
+		4728F7361F6193890010CE26 /* 地三鲜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地三鲜.png"; sourceTree = "<group>"; };
+		4728F7371F6193890010CE26 /* 小炒牛肉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小炒牛肉.png"; sourceTree = "<group>"; };
+		4728F7381F6193890010CE26 /* 水果沙拉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水果沙拉.png"; sourceTree = "<group>"; };
+		4728F7391F6193890010CE26 /* 油焖大虾.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "油焖大虾.png"; sourceTree = "<group>"; };
+		4728F73A1F6193890010CE26 /* 洋葱肉末盖浇饭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "洋葱肉末盖浇饭.png"; sourceTree = "<group>"; };
+		4728F73B1F6193890010CE26 /* 夏威夷风味烤三文鱼.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "夏威夷风味烤三文鱼.png"; sourceTree = "<group>"; };
+		4728F73C1F6193890010CE26 /* 番茄炒蛋.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "番茄炒蛋.png"; sourceTree = "<group>"; };
+		4728F73D1F6193890010CE26 /* 番茄牛肉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "番茄牛肉.png"; sourceTree = "<group>"; };
+		4728F73E1F6193890010CE26 /* 番茄蛋花汤.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "番茄蛋花汤.png"; sourceTree = "<group>"; };
+		4728F73F1F6193890010CE26 /* 白灼明虾.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白灼明虾.png"; sourceTree = "<group>"; };
+		4728F7401F6193890010CE26 /* 红烧肉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "红烧肉.png"; sourceTree = "<group>"; };
+		4728F7411F6193890010CE26 /* 肉末茄子.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "肉末茄子.png"; sourceTree = "<group>"; };
+		4728F7421F6193890010CE26 /* 黄瓜凉面.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "黄瓜凉面.png"; sourceTree = "<group>"; };
+		4728F7511F619FDD0010CE26 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4728F7521F619FDD0010CE26 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4728F7531F619FDD0010CE26 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		4728F7561F61A2260010CE26 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		4728F7571F61A2260010CE26 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		4728F7581F61A2260010CE26 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		475FEF0D1F51A2760047059F /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FEF111F51A2760047059F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		475FEF131F51A2760047059F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -342,6 +380,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4728F7341F6193890010CE26 /* 菜肴图片 */ = {
+			isa = PBXGroup;
+			children = (
+				4728F7351F6193890010CE26 /* 土豆烧肉.png */,
+				4728F7361F6193890010CE26 /* 地三鲜.png */,
+				4728F7371F6193890010CE26 /* 小炒牛肉.png */,
+				4728F7381F6193890010CE26 /* 水果沙拉.png */,
+				4728F7391F6193890010CE26 /* 油焖大虾.png */,
+				4728F73A1F6193890010CE26 /* 洋葱肉末盖浇饭.png */,
+				4728F73B1F6193890010CE26 /* 夏威夷风味烤三文鱼.png */,
+				4728F73C1F6193890010CE26 /* 番茄炒蛋.png */,
+				4728F73D1F6193890010CE26 /* 番茄牛肉.png */,
+				4728F73E1F6193890010CE26 /* 番茄蛋花汤.png */,
+				4728F73F1F6193890010CE26 /* 白灼明虾.png */,
+				4728F7401F6193890010CE26 /* 红烧肉.png */,
+				4728F7411F6193890010CE26 /* 肉末茄子.png */,
+				4728F7421F6193890010CE26 /* 黄瓜凉面.png */,
+			);
+			path = "菜肴图片";
+			sourceTree = "<group>";
+		};
 		475FEF041F51A2760047059F = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +443,7 @@
 		475FEF101F51A2760047059F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4728F7341F6193890010CE26 /* 菜肴图片 */,
 				8593E2F51F58225900EFFF75 /* animate */,
 				85A70DE51F566D42000EA830 /* datas */,
 				475FEF111F51A2760047059F /* main.m */,
@@ -419,6 +479,9 @@
 				475FEF401F51ACCF0047059F /* views */,
 				475FEF381F51ACAF0047059F /* HomeTableViewController.h */,
 				475FEF391F51ACAF0047059F /* HomeTableViewController.m */,
+				4728F7511F619FDD0010CE26 /* LoginViewController.h */,
+				4728F7521F619FDD0010CE26 /* LoginViewController.m */,
+				4728F7531F619FDD0010CE26 /* LoginViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -452,6 +515,9 @@
 				475FEF411F51ACED0047059F /* OnkeyRecipesView.h */,
 				475FEF421F51ACED0047059F /* OnkeyRecipesView.m */,
 				475FEF441F51ACFF0047059F /* OnkeyRecipesView.xib */,
+				4728F7561F61A2260010CE26 /* HomeTableViewCell.h */,
+				4728F7571F61A2260010CE26 /* HomeTableViewCell.m */,
+				4728F7581F61A2260010CE26 /* HomeTableViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -692,15 +758,19 @@
 			files = (
 				8593E3951F58225A00EFFF75 /* 53.png in Resources */,
 				8593E3691F58225A00EFFF75 /* 112.png in Resources */,
+				4728F74F1F6193890010CE26 /* 肉末茄子.png in Resources */,
 				8593E38F1F58225A00EFFF75 /* 47.png in Resources */,
+				4728F74D1F6193890010CE26 /* 白灼明虾.png in Resources */,
 				8593E3831F58225A00EFFF75 /* 35.png in Resources */,
 				8593E3661F58225A00EFFF75 /* 109.png in Resources */,
 				8593E3B81F58225A00EFFF75 /* 88.png in Resources */,
+				4728F75A1F61A2260010CE26 /* HomeTableViewCell.xib in Resources */,
 				8593E3B41F58225A00EFFF75 /* 84.png in Resources */,
 				8593E3631F58225A00EFFF75 /* 106.png in Resources */,
 				8593E35F1F58225A00EFFF75 /* 102.png in Resources */,
 				8593E3B71F58225A00EFFF75 /* 87.png in Resources */,
 				8593E3B91F58225A00EFFF75 /* 89.png in Resources */,
+				4728F7451F6193890010CE26 /* 小炒牛肉.png in Resources */,
 				8593E3A51F58225A00EFFF75 /* 69.png in Resources */,
 				8593E39E1F58225A00EFFF75 /* 62.png in Resources */,
 				8593E39C1F58225A00EFFF75 /* 60.png in Resources */,
@@ -718,9 +788,12 @@
 				8593E3A11F58225A00EFFF75 /* 65.png in Resources */,
 				8593E3721F58225A00EFFF75 /* 121.png in Resources */,
 				8593E3811F58225A00EFFF75 /* 33.png in Resources */,
+				4728F74E1F6193890010CE26 /* 红烧肉.png in Resources */,
 				8593E3BF1F58225A00EFFF75 /* 95.png in Resources */,
+				4728F74C1F6193890010CE26 /* 番茄蛋花汤.png in Resources */,
 				8593E39B1F58225A00EFFF75 /* 59.png in Resources */,
 				8593E3621F58225A00EFFF75 /* 105.png in Resources */,
+				4728F7481F6193890010CE26 /* 洋葱肉末盖浇饭.png in Resources */,
 				8593E3B31F58225A00EFFF75 /* 83.png in Resources */,
 				8593E3881F58225A00EFFF75 /* 40.png in Resources */,
 				8593E35D1F58225A00EFFF75 /* 100.png in Resources */,
@@ -732,6 +805,7 @@
 				8593E3AE1F58225A00EFFF75 /* 78.png in Resources */,
 				8593E3921F58225A00EFFF75 /* 50.png in Resources */,
 				8593E3961F58225A00EFFF75 /* 54.png in Resources */,
+				4728F7471F6193890010CE26 /* 油焖大虾.png in Resources */,
 				4728F72E1F5D9DBB0010CE26 /* FoodTableViewCell.xib in Resources */,
 				8593E3751F58225A00EFFF75 /* 124.png in Resources */,
 				8593E3BD1F58225A00EFFF75 /* 93.png in Resources */,
@@ -741,21 +815,27 @@
 				8593E3711F58225A00EFFF75 /* 120.png in Resources */,
 				8593E3731F58225A00EFFF75 /* 122.png in Resources */,
 				8593E3791F58225A00EFFF75 /* 25.png in Resources */,
+				4728F7491F6193890010CE26 /* 夏威夷风味烤三文鱼.png in Resources */,
 				8593E3761F58225A00EFFF75 /* 125.png in Resources */,
 				8593E36C1F58225A00EFFF75 /* 115.png in Resources */,
 				8593E3651F58225A00EFFF75 /* 108.png in Resources */,
 				8593E3BE1F58225A00EFFF75 /* 94.png in Resources */,
+				4728F74B1F6193890010CE26 /* 番茄牛肉.png in Resources */,
+				4728F7431F6193890010CE26 /* 土豆烧肉.png in Resources */,
 				8593E39D1F58225A00EFFF75 /* 61.png in Resources */,
 				8593E3931F58225A00EFFF75 /* 51.png in Resources */,
 				8593E36F1F58225A00EFFF75 /* 118.png in Resources */,
 				8593E3BC1F58225A00EFFF75 /* 92.png in Resources */,
 				8593E3BA1F58225A00EFFF75 /* 90.png in Resources */,
+				4728F7501F6193890010CE26 /* 黄瓜凉面.png in Resources */,
 				8593E3741F58225A00EFFF75 /* 123.png in Resources */,
 				8593E3941F58225A00EFFF75 /* 52.png in Resources */,
 				8593E21A1F57E89C00EFFF75 /* MenuDetail.plist in Resources */,
+				4728F7551F619FDD0010CE26 /* LoginViewController.xib in Resources */,
 				8593E3971F58225A00EFFF75 /* 55.png in Resources */,
 				8593E3B61F58225A00EFFF75 /* 86.png in Resources */,
 				8593E3A71F58225A00EFFF75 /* 71.png in Resources */,
+				4728F7441F6193890010CE26 /* 地三鲜.png in Resources */,
 				475FEF571F5275900047059F /* RefrigeratorTableViewCell.xib in Resources */,
 				8593E3AF1F58225A00EFFF75 /* 79.png in Resources */,
 				8593E3671F58225A00EFFF75 /* 110.png in Resources */,
@@ -768,6 +848,7 @@
 				8593E37A1F58225A00EFFF75 /* 26.png in Resources */,
 				8593E37B1F58225A00EFFF75 /* 27.png in Resources */,
 				8593E3601F58225A00EFFF75 /* 103.png in Resources */,
+				4728F74A1F6193890010CE26 /* 番茄炒蛋.png in Resources */,
 				8593E3A41F58225A00EFFF75 /* 68.png in Resources */,
 				8593E3BB1F58225A00EFFF75 /* 91.png in Resources */,
 				8593E3C01F58225A00EFFF75 /* 96.png in Resources */,
@@ -776,6 +857,7 @@
 				8593E3841F58225A00EFFF75 /* 36.png in Resources */,
 				8593E3681F58225A00EFFF75 /* 111.png in Resources */,
 				475FEF451F51ACFF0047059F /* OnkeyRecipesView.xib in Resources */,
+				4728F7461F6193890010CE26 /* 水果沙拉.png in Resources */,
 				8593E3901F58225A00EFFF75 /* 48.png in Resources */,
 				8593E3C31F58225A00EFFF75 /* 99.png in Resources */,
 				8593E3C81F58228000EFFF75 /* RecommendingViewController.xib in Resources */,
@@ -882,6 +964,8 @@
 				8593E2231F5819DC00EFFF75 /* RecipersRecomendHelper.m in Sources */,
 				475FEF611F5454060047059F /* AddFoodViewController.m in Sources */,
 				475FEF561F5275900047059F /* RefrigeratorTableViewCell.m in Sources */,
+				4728F7591F61A2260010CE26 /* HomeTableViewCell.m in Sources */,
+				4728F7541F619FDD0010CE26 /* LoginViewController.m in Sources */,
 				4728F7291F5B00820010CE26 /* HealthIntakeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

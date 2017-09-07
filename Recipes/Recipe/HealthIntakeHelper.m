@@ -110,4 +110,5 @@
 + (NSInteger)dayNumberOfDate:(NSDate *)date {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:date] day];
 }
+
 @end

@@ -116,7 +116,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>油闷大虾</string>
+		<string>油焖大虾</string>
 		<key>seasoning</key>
 		<string>白糖 1/4茶匙；生抽 1/2茶匙；料酒 1茶匙；盐1/4茶匙</string>
 		<key>ingredients</key>
@@ -223,7 +223,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>洋葱肉末盖浇饭</string>
+		<string>洋葱肉末盖浇饭</string>
 		<key>seasoning</key>
 		<string>盐 1/4茶匙；糖 1/4茶匙；豆瓣酱 1茶匙；淀粉 1茶匙</string>
 		<key>ingredients</key>
@@ -242,7 +242,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>水果沙拉</string>
+		<string>水果沙拉</string>
 		<key>seasoning</key>
 		<string>沙拉酱</string>
 		<key>ingredients</key>
