@@ -36,6 +36,7 @@
 -(void)refreshData{
     //清空一下数据
     [self.dataSource removeAllObjects];
+    
     for (FoodModel *food in self.allFoods) {
         NSLog(@"species = %ld self.foodType= %ld",food.species,self.foodType);
         if (food.species == self.foodType) {//是当前的类型
@@ -113,14 +114,34 @@
     FoodModel *food = self.dataSource[indexPath.row];
     cell.food = food;
     // Configure the cell...
-    
+    __weak typeof(self) wkSelf = self;
+    cell.clickDeleteBtn = ^(FoodModel *model) {
+        [wkSelf deleteFoodModel:model];
+    };
     return cell;
 }
+
+//删除某个食材
+-(void)deleteFoodModel:(FoodModel *)food{
+    NSInteger row = [self.dataSource indexOfObject:food];
+    [self.dataSource removeObjectAtIndex:row];
+    [self.tableView deleteRow:row inSection:0 withRowAnimation:UITableViewRowAnimationLeft];
+    //更新数据库，从冰箱中移除食材
+    [[DataBaseManager defaultManager] removeFoodModel:food];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoodModel *food = self.dataSource[indexPath.row];
+    if (food.remainingDays<0) {
+        UIAlertView *alv = [[UIAlertView alloc]initWithTitle:@"该食材已过期！" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alv show];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
     [[NSNotificationCenter defaultCenter]postNotificationName:kSelectedFoodNoti object:food];
 }
+
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoodModel *food = self.dataSource[indexPath.row];

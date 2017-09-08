@@ -36,11 +36,7 @@
 }
 -(void)putIntoRefiAndUpdateDataBase
 {
-    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET amount = %f, putRefDate = %f , inRefigerator = 1 WHERE foodid = %ld;",kFoodTableName,self.amount,[self.putRefDate timeIntervalSince1970],self.foodid];
-    [[DataBaseManager defaultManager].dbQueue inDatabase:^(FMDatabase *db) {
-        BOOL isSuccess = [db executeUpdate:sql];
-        NSLog(@"%@", isSuccess ? @"插入食材数据成功" : @"插入食材数据失败");
-    }];
+    [[DataBaseManager defaultManager] AddToRefiFoodModel:self];
 }
 
 /**

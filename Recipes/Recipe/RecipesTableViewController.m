@@ -9,6 +9,8 @@
 #import "RecipesTableViewController.h"
 #import "RecipesManager.h"
 #import "RecipTableViewCell.h"
+#import "RecipesDetailViewController.h"
+
 @interface RecipesTableViewController ()
 
 @end
@@ -18,13 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customTableView];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+/**
+ 定义列表
+ */
 -(void)customTableView{
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RecipTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecipTableViewCell"];
@@ -34,6 +40,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -42,11 +50,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return [RecipesManager defaultManager].allRecipes.count;
 }
 
@@ -59,6 +67,16 @@
     cell.bgImgView.image = [UIImage imageNamed:model.name];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RecipesModel *model = [RecipesManager defaultManager].allRecipes[indexPath.row];
+    RecipesDetailViewController *detailVC = [[RecipesDetailViewController alloc]initWithNibName:@"RecipesDetailViewController" bundle:nil];
+    detailVC.recipe = model;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

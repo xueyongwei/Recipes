@@ -36,12 +36,18 @@
     [self customChildVC];
     
     [self addNotiObser];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 -(void)addNotiObser{
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(selectedFoodNoti:) name:kSelectedFoodNoti object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deSelectedFoodNoti:) name:kDeSelectedFoodNoti object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addNewFoodNoti:) name:kHaveAddOneFoodNoti object:nil];
+    
+    //监听食材的变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reQueryFoodDatas) name:kFoodTableChangedNoti object:nil];
 }
 
 
@@ -113,6 +119,11 @@
  */
 -(void)reQueryFoodDatas{
      self.dataSource = [NSMutableArray arrayWithArray:[[DataBaseManager defaultManager]quryAllFoodsInRefigerator]];
+    [self.childViewControllers enumerateObjectsUsingBlock:^(FoodTableViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj) {
+            [obj refreshData];
+        }
+    }];
 }
 
 

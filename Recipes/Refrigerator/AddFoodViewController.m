@@ -52,6 +52,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"添加食材";
+    [self custonNavi];
     // 创建UISearchController, 这里使用当前控制器来展示结果
     UISearchController *search = [[UISearchController alloc]initWithSearchResultsController:nil];
     // 设置结果更新代理
@@ -67,7 +69,28 @@
   
     // Do any additional setup after loading the view from its nib.
 }
+/**
+ 自定义导航
+ */
+-(void)custonNavi{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"naviBack"] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0, 0, 44, 44);
+    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    btn.tintColor = [UIColor whiteColor];
+    [btn addTarget:self action:@selector(backHandle) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *itm = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    UIBarButtonItem *fix = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fix.width = -10;
+    self.navigationItem.leftBarButtonItems = @[fix,itm];
+}
 
+/**
+ 返回到上一层
+ */
+-(void)backHandle{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)prepareData{
     NSArray *data =  [[DataBaseManager defaultManager] quryAllFoods];
     NSLog(@"%@",data);

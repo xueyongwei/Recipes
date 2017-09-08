@@ -11,10 +11,11 @@
 #import "FoodModel.h"
 
 #define kFoodTableName @"t_foods"
+#define kFoodTableChangedNoti @"FoodTableChangedNoti"
 
 @interface DataBaseManager : NSObject
 @property (nonatomic,strong) FMDatabaseQueue *dbQueue;
-
+@property (nonatomic,strong) NSMutableArray *allFoods;
 
 /**
  单例，数据库管理器
@@ -48,4 +49,19 @@
  @return 食材model数组
  */
 -(NSArray *)quryExpiringFoodsInRefigerator;
+
+
+/**
+ 从冰箱移除某个食材
+
+ @param food 食材
+ */
+-(void)removeFoodModel:(FoodModel *)food;
+
+/**
+ 添加到冰箱某个食材
+ 
+ @param food 食材
+ */
+-(void)AddToRefiFoodModel:(FoodModel *)food;
 @end

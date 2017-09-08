@@ -20,6 +20,7 @@
 }
 -(void)setUp{
     [self initDataBase];
+    
 }
 -(void)initDataBase{
     //1.获得数据库文件的路径
@@ -39,6 +40,7 @@
             BOOL foodTableResult = [db executeUpdate:sql];
             if (foodTableResult){
                 NSLog(@"创建食材库表成功");
+               
                 [wkSelf createDateIfNothingIndb:db];
             }else{
                 NSLog(@"创建食材库失败");
@@ -56,16 +58,19 @@
     NSString *querySql = [NSString stringWithFormat:@"select * from %@;",kFoodTableName];
     FMResultSet *resultSet = [db executeQuery:querySql];
     if (!resultSet.next) {
+        [resultSet close];
         for (FoodModel *food in foods) {
-            NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (foodid,name,species,maxDay,calorie,carbohydrate,vitamin,protein,inRefigerator,unit) VALUES (%ld,'%@',%ld,%ld,%ld,%.2f,%.2f,%.2f,%d,'%@')",kFoodTableName,food.foodid,food.name ,food.species,food.maxDay,food.calorie,food.carbohydrate,food.vitamin,food.protein,food.inRefigerator,food.unit];
+            NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (foodid,name,species,maxDay,calorie,carbohydrate,vitamin,protein,inRefigerator,unit,amount,putRefDate) VALUES (%ld,'%@',%ld,%ld,%ld,%.2f,%.2f,%.2f,%d,'%@',%f,%f)",kFoodTableName,food.foodid,food.name ,food.species,food.maxDay,food.calorie,food.carbohydrate,food.vitamin,food.protein,food.inRefigerator,food.unit,food.amount,[food.putRefDate timeIntervalSince1970]];
             BOOL isSuccess =[db executeUpdate:sql];
             NSLog(@"%@", isSuccess ? @"插入食材数据成功" : @"插入食材数据失败");
         }
     }else{
         NSLog(@"已有数据");
+        
     }
-    [resultSet close];
-   
+    NSLog(@"获取所有食材");
+//    self.allFoods = [NSMutableArray arrayWithArray:[self quryAllFoods]];
+
 }
 
 /**
@@ -80,7 +85,7 @@
     FoodModel *cucumber = [FoodModel FoodWithFoodid:10000 Name:@"黄瓜" species:1 maxDay:7 calorie:15 carbohydrate:2 vitamin:9 protein:1 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"根"];
     [foods addObject:cucumber];
     
-    FoodModel *tomato = [FoodModel FoodWithFoodid:10001 Name:@"番茄" species:1 maxDay:5 calorie:19 carbohydrate:4 vitamin:19 protein:1 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"个"];
+    FoodModel *tomato = [FoodModel FoodWithFoodid:10001 Name:@"番茄" species:1 maxDay:5 calorie:19 carbohydrate:4 vitamin:19 protein:1 inRefigerator:YES putRefDate:[NSDate date] amount:3 unit:@"个"];
     [foods addObject:tomato];
     
     FoodModel *eggplant = [FoodModel FoodWithFoodid:10002 Name:@"茄子" species:1 maxDay:6 calorie:21 carbohydrate:3.6 vitamin:5 protein:1.1 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"根"];
@@ -89,13 +94,13 @@
     FoodModel *potato = [FoodModel FoodWithFoodid:10003 Name:@"土豆" species:1 maxDay:10 calorie:76 carbohydrate:16.5 vitamin:27 protein:2 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"个"];
     [foods addObject:potato];
     
-    FoodModel *beef = [FoodModel FoodWithFoodid:10004 Name:@"牛肉" species:2 maxDay:7 calorie:155 carbohydrate:1 vitamin:0 protein:20 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"克"];
+    FoodModel *beef = [FoodModel FoodWithFoodid:10004 Name:@"牛肉" species:2 maxDay:7 calorie:155 carbohydrate:1 vitamin:0 protein:20 inRefigerator:YES putRefDate:[NSDate date] amount:500 unit:@"克"];
     [foods addObject:beef];
     
     FoodModel *pork = [FoodModel FoodWithFoodid:10005 Name:@"猪肉" species:2 maxDay:7 calorie:106 carbohydrate:1 vitamin:0 protein:20 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"克"];
     [foods addObject:pork];
     
-    FoodModel *salmon = [FoodModel FoodWithFoodid:10006 Name:@"三文鱼" species:3 maxDay:4 calorie:139 carbohydrate:2.9 vitamin:0 protein:17.2 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"克"];
+    FoodModel *salmon = [FoodModel FoodWithFoodid:10006 Name:@"三文鱼" species:3 maxDay:4 calorie:139 carbohydrate:2.9 vitamin:0 protein:17.2 inRefigerator:YES putRefDate:[self dateBeforeTodayWithDays:6] amount:500 unit:@"克"];
     [foods addObject:salmon];
     
     FoodModel *prawns = [FoodModel FoodWithFoodid:10007 Name:@"明虾" species:3 maxDay:4 calorie:85 carbohydrate:3.8 vitamin:0 protein:13.4 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"只"];
@@ -109,7 +114,7 @@
     /*
      需要添加新的数据，仿照下面的添加即可。
      */
-    FoodModel *pineapple = [FoodModel FoodWithFoodid:10010 Name:@"菠萝" species:4 maxDay:7 calorie:41 carbohydrate:9.5 vitamin:18 protein:0.5 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"个"];
+    FoodModel *pineapple = [FoodModel FoodWithFoodid:10010 Name:@"菠萝" species:4 maxDay:7 calorie:41 carbohydrate:9.5 vitamin:18 protein:0.5 inRefigerator:YES putRefDate:[self dateBeforeTodayWithDays:5] amount:5 unit:@"个"];
     [foods addObject:pineapple];
     
     
@@ -117,6 +122,19 @@
     
 }
 
+
+/**
+ 生成一个n天前的日期
+
+ @param days 天数
+ @return 日期
+ */
+-(NSDate *)dateBeforeTodayWithDays:(NSInteger)days{
+    NSDate *now = [NSDate date];
+    NSTimeInterval aTimeInterval = [now timeIntervalSinceReferenceDate] - 86400 * days;
+    NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
+    return newDate;
+}
 /**
  使用事务批量添加初始化食材数据
 
@@ -149,9 +167,23 @@
  @return 食材model数组
  */
 -(NSArray *)quryAllFoodsInRefigerator{
-    NSString *querySql = [NSString stringWithFormat:@"select * from %@ where inRefigerator;",kFoodTableName];
-    NSArray *result = [self fmQuryWithSql:querySql];
-    return result;
+    if (self.allFoods.count>0) {
+        NSLog(@"从内存查询");
+        NSMutableArray *array = [[NSMutableArray alloc]init];
+        [self.allFoods enumerateObjectsUsingBlock:^(FoodModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.inRefigerator) {
+                [array addObject:obj];
+            }
+        }];
+        return array;
+    }else{
+        NSLog(@"直接从本地数据库查询");
+        NSString *querySql = [NSString stringWithFormat:@"select * from %@ where inRefigerator;",kFoodTableName];
+        NSArray *result = [self fmQuryWithSql:querySql];
+        NSLog(@"查询结果 %@",result);
+        return result;
+    }
+    
 }
 
 
@@ -188,13 +220,62 @@
             CGFloat vitamin = [result doubleForColumn:@"vitamin"];
             CGFloat protein = [result doubleForColumn:@"protein"];
             BOOL inRefigerator = [result boolForColumn:@"inRefigerator"];
-            NSDate *putRefDate = [result dateForColumn:@"putRefDate"];
+            NSInteger putRefDateSec = [result longForColumn:@"putRefDate"];
             CGFloat amount = [result doubleForColumn:@"amount"];
             NSString *unit = [result stringForColumn:@"unit"];
-            model = [FoodModel FoodWithFoodid:foodid Name:name species:species maxDay:maxDay calorie:calorie carbohydrate:carbohydrate vitamin:vitamin protein:protein inRefigerator:inRefigerator putRefDate:putRefDate amount:amount unit:unit];
+            model = [FoodModel FoodWithFoodid:foodid Name:name species:species maxDay:maxDay calorie:calorie carbohydrate:carbohydrate vitamin:vitamin protein:protein inRefigerator:inRefigerator putRefDate:[NSDate dateWithTimeIntervalSince1970:putRefDateSec] amount:amount unit:unit];
             [resultArray addObject:model];
         }
     }];
     return resultArray;
+}
+
+/**
+ 从冰箱移除某个食材
+ 
+ @param food 食材
+ */
+-(void)removeFoodModel:(FoodModel *)food{
+    //跟新本地数据库中的数据
+    NSString *updateSql = [NSString stringWithFormat:@"UPDATE %@ SET inRefigerator = 0 ,amount = 0 WHERE foodid = %ld;",kFoodTableName,food.foodid];
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        BOOL isSuccess = [db executeUpdate:updateSql];
+        NSLog(@"isSuccess = %d",isSuccess);
+        
+    }];
+    //更新内存中的数据
+    [self.allFoods enumerateObjectsUsingBlock:^(FoodModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.foodid == food.foodid) {
+            *stop = YES;
+            obj.inRefigerator = NO;
+            obj.amount = 0;
+        }
+    }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kFoodTableChangedNoti object:nil];
+}
+
+/**
+ 添加到冰箱某个食材
+ 
+ @param food 食材
+ */
+-(void)AddToRefiFoodModel:(FoodModel *)food
+{
+    //跟新本地数据库中的数据
+    NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET amount = %f, putRefDate = %f , inRefigerator = 1 WHERE foodid = %ld;",kFoodTableName,food.amount,[food.putRefDate timeIntervalSince1970],food.foodid];
+    [[DataBaseManager defaultManager].dbQueue inDatabase:^(FMDatabase *db) {
+        BOOL isSuccess = [db executeUpdate:sql];
+        NSLog(@"%@", isSuccess ? @"插入食材数据成功" : @"插入食材数据失败");
+    }];
+    
+    //更新内存中的数据
+    [self.allFoods enumerateObjectsUsingBlock:^(FoodModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.foodid == food.foodid) {
+            *stop = YES;
+            obj.inRefigerator = YES;
+            obj.amount = food.amount;
+            obj.putRefDate = food.putRefDate;
+        }
+    }];
 }
 @end

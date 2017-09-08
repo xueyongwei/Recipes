@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *tf1;
+@property (weak, nonatomic) IBOutlet UITextField *tf2;
 
 @end
 
@@ -22,6 +24,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onLoginClick:(UIButton *)sender {
+    if (_tf1.text.length<1) {
+        CoreSVPCenterMsg(@"请输入用户名");
+        return;
+    }
+    if (_tf2.text.length<1) {
+        CoreSVPCenterMsg(@"请输入密码");
+        return;
+    }
+    CoreSVPLoading(@"正在登录..", NO);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [CoreSVP dismiss];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    });
 }
 
 /*

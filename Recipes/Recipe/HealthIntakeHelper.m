@@ -42,7 +42,7 @@
  */
 +(NSArray *)foodModelWithIngrdientNames:(NSArray *)names{
     //找到所有的食材
-    NSArray *allFoods = [[DataBaseManager defaultManager]quryAllFoods];
+    NSArray *allFoods = [DataBaseManager defaultManager].allFoods;
     //存储复合条件的食材
     NSMutableArray *foods = [[NSMutableArray alloc]init];
     

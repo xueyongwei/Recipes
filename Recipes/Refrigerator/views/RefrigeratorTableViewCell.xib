@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="92.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vq7-IV-hPr">
@@ -33,12 +32,6 @@
                         <rect key="frame" x="15" y="15" width="62" height="62.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fKv-6r-jXh" secondAttribute="height" multiplier="1:1" id="IwN-fB-I7F"/>
-                        </constraints>
-                    </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point_select" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-ZN-Ab1">
-                        <rect key="frame" x="58" y="15" width="18.5" height="18.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="7ej-ZN-Ab1" secondAttribute="height" multiplier="1:1" id="geb-1M-x94"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="黄瓜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-Bl-HSE">
@@ -67,6 +60,17 @@
                         <state key="normal" image="check"/>
                         <state key="selected" image="check_s"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-nS-Ruo">
+                        <rect key="frame" x="52" y="10" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wZ2-nS-Ruo" secondAttribute="height" multiplier="1:1" id="hj5-VA-vL8"/>
+                            <constraint firstAttribute="height" constant="30" id="qUb-HA-R7Y"/>
+                        </constraints>
+                        <state key="normal" image="warning"/>
+                        <connections>
+                            <action selector="onDeleteClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BSn-aZ-f5w"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -74,21 +78,20 @@
                     <constraint firstItem="G4R-ag-Y8x" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9ME-Pv-EAF"/>
                     <constraint firstItem="G4R-ag-Y8x" firstAttribute="leading" secondItem="3t9-qE-Szf" secondAttribute="trailing" constant="5" id="HbT-zC-OiK"/>
                     <constraint firstAttribute="trailing" secondItem="Vq7-IV-hPr" secondAttribute="trailing" constant="10" id="M3S-YG-gfw"/>
-                    <constraint firstItem="7ej-ZN-Ab1" firstAttribute="top" secondItem="fKv-6r-jXh" secondAttribute="top" id="QJ2-0k-YmW"/>
                     <constraint firstItem="3t9-qE-Szf" firstAttribute="leading" secondItem="SIj-Bl-HSE" secondAttribute="trailing" constant="5" id="QTz-Gi-NZA"/>
                     <constraint firstItem="SIj-Bl-HSE" firstAttribute="leading" secondItem="fKv-6r-jXh" secondAttribute="trailing" constant="5" id="UwR-BR-gAK"/>
                     <constraint firstAttribute="bottom" secondItem="fKv-6r-jXh" secondAttribute="bottom" constant="15" id="V3C-td-bdS"/>
                     <constraint firstItem="fKv-6r-jXh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="X9w-zF-CSv"/>
+                    <constraint firstItem="wZ2-nS-Ruo" firstAttribute="trailing" secondItem="fKv-6r-jXh" secondAttribute="trailing" constant="5" id="Y17-aT-pDM"/>
                     <constraint firstItem="fKv-6r-jXh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="dM2-pl-hQ6"/>
                     <constraint firstItem="Vq7-IV-hPr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dlr-g9-c6h"/>
-                    <constraint firstItem="7ej-ZN-Ab1" firstAttribute="width" secondItem="fKv-6r-jXh" secondAttribute="width" multiplier="0.3" id="fMZ-9M-vMf"/>
                     <constraint firstItem="SIj-Bl-HSE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hlP-Sx-pqP"/>
                     <constraint firstItem="3t9-qE-Szf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iVc-9u-lXP"/>
                     <constraint firstItem="3jp-UP-UWN" firstAttribute="leading" secondItem="G4R-ag-Y8x" secondAttribute="trailing" constant="5" id="jgX-sc-yjk"/>
                     <constraint firstItem="3t9-qE-Szf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pP7-r5-Cx7"/>
-                    <constraint firstItem="7ej-ZN-Ab1" firstAttribute="trailing" secondItem="fKv-6r-jXh" secondAttribute="trailing" id="srg-Tm-aNj"/>
                     <constraint firstItem="3jp-UP-UWN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sxJ-qp-LqF"/>
                     <constraint firstAttribute="trailing" secondItem="3jp-UP-UWN" secondAttribute="trailing" constant="5" id="u5h-SN-Hhl"/>
+                    <constraint firstItem="wZ2-nS-Ruo" firstAttribute="top" secondItem="fKv-6r-jXh" secondAttribute="top" constant="-5" id="x15-BO-Uj6"/>
                     <constraint firstAttribute="bottom" secondItem="Vq7-IV-hPr" secondAttribute="bottom" constant="10" id="xj4-q3-Sml"/>
                 </constraints>
             </tableViewCellContentView>
@@ -97,6 +100,7 @@
                 <outlet property="amountLabel" destination="3t9-qE-Szf" id="ofn-td-VMK"/>
                 <outlet property="checkImgView" destination="3jp-UP-UWN" id="MZW-x2-eiX"/>
                 <outlet property="expDayLabel" destination="G4R-ag-Y8x" id="fEz-9e-5i1"/>
+                <outlet property="flagImgView" destination="wZ2-nS-Ruo" id="dNh-IC-LZU"/>
                 <outlet property="imgView" destination="fKv-6r-jXh" id="k4Q-YJ-995"/>
                 <outlet property="naleLabel" destination="SIj-Bl-HSE" id="KhJ-lZ-UUg"/>
             </connections>
@@ -106,6 +110,6 @@
     <resources>
         <image name="check" width="30" height="30"/>
         <image name="check_s" width="30" height="30"/>
-        <image name="point_select" width="30" height="30"/>
+        <image name="warning" width="60" height="60"/>
     </resources>
 </document>

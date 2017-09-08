@@ -9,5 +9,15 @@
 #import "RecipesModel.h"
 
 @implementation RecipesModel
-
+-(FoodModel *)getfoodModelWithFoodName:(NSString *)foodName{
+    NSArray *allFoods = [DataBaseManager defaultManager].allFoods;
+    __block FoodModel *returnFood = nil;
+    [allFoods enumerateObjectsUsingBlock:^(FoodModel *food, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([food.name isEqualToString:foodName]) {
+            *stop = YES;
+            returnFood = food;
+        }
+    }];
+    return returnFood;
+}
 @end

@@ -20,9 +20,27 @@
     _food = food;
     self.naleLabel.text = food.name;
     self.amountLabel.text = [NSString stringWithFormat:@"%.1f%@",food.amount,food.unit];
+    if (food.remainingDays<3) {
+        self.flagImgView.hidden = NO;
+        [self.flagImgView setImage:[UIImage imageNamed:@"warning"] forState:UIControlStateNormal];
+//        self.flagImgView.image = [UIImage imageNamed:@"warning"];
+        if (food.remainingDays<0) {
+            [self.flagImgView setImage:[UIImage imageNamed:@"didExp"] forState:UIControlStateNormal];
+//            self.flagImgView.image = [UIImage imageNamed:@"didExp"];
+        }
+    }else{
+        self.flagImgView.hidden = YES;
+    }
     self.expDayLabel.text =  [self maxDay];
     self.imgView.image = [UIImage imageNamed:food.name];
 }
+- (IBAction)onDeleteClick:(UIButton *)sender {
+    if (self.clickDeleteBtn) {
+        self.clickDeleteBtn(self.food);
+    }
+}
+
+
 -(NSString *)maxDay{
     //过期的日期
     NSInteger  remainDays = [self.food remainingDays];
