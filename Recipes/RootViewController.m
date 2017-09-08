@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [DataBaseManager defaultManager].allFoods = [NSMutableArray arrayWithArray:[[DataBaseManager defaultManager]quryAllFoods]];
     // Do any additional setup after loading the view.
 }
 

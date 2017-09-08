@@ -251,7 +251,7 @@
             obj.amount = 0;
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kFoodTableChangedNoti object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kFoodTableChangedNoti object:food];
 }
 
 /**

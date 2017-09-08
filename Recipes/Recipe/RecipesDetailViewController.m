@@ -49,7 +49,7 @@
 //        [self.topDatas addObject:@" "];
         [self.topDatas addObject: [self getShowStrOfFoodName:name]];
     }
-    [self.topDatas addObject:[NSString stringWithFormat:@"调味：\n%@",self.recipe.seasoning]];
+    [self.topDatas addObject:[NSString stringWithFormat:@"  调味：\n%@",self.recipe.seasoning]];
     [self.topDatas addObject:@""];
     
     for (NSString *step in self.recipe.steps) {
@@ -151,7 +151,7 @@
 }
 -(NSString *)getShowStrOfFoodName:(NSString *)foodName{
     FoodModel *food = [self.recipe getfoodModelWithFoodName:foodName];
-    NSString *str = [NSString stringWithFormat:@"%@:%d%@",food.name,[food.unit isEqualToString:@"克"]?100:1,food.unit];
+    NSString *str = [NSString stringWithFormat:@"  %@:%d%@",food.name,[food.unit isEqualToString:@"克"]?100:1,food.unit];
     return str;
 }
 - (void)didReceiveMemoryWarning {

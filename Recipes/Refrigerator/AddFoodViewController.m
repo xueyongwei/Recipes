@@ -92,9 +92,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)prepareData{
-    NSArray *data =  [[DataBaseManager defaultManager] quryAllFoods];
-    NSLog(@"%@",data);
-    self.datas = [NSMutableArray arrayWithArray:data];
+//    NSArray *data =  [DataBaseManager defaultManager].allFoods;
+//    NSLog(@"%@",data);
+//    self.datas = [NSMutableArray arrayWithArray:data];
+    self.datas = [DataBaseManager defaultManager].allFoods;
     [self.tableView reloadData];
     
 }

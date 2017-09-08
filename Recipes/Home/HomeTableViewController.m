@@ -26,16 +26,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //只有这一次去查询数据库，然后缓存到内存，以后直接从[DataBaseManager defaultManager].allFoods取
-    [[DataBaseManager defaultManager]quryAllFoods];
+    
     [self customTableView];
     [self prepareData];
     //弹出登录窗口
     [self presentLogin];
     //监听食材的变化
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareData) name:kFoodTableChangedNoti object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDeleteFoodNoti:) name:kFoodTableChangedNoti object:nil];
 }
 
-
+-(void)receiveDeleteFoodNoti:(NSNotification *)noti{
+    FoodModel *food = noti.object;
+    [self.dataSource enumerateObjectsUsingBlock:^(FoodModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (food.foodid == obj.foodid ) {
+            *stop = YES;
+            [self.dataSource removeObject:obj];
+            [self.tableView reloadData];
+        }
+    }];
+}
 
 /**
  模拟用户登录状态

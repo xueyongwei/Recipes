@@ -47,10 +47,26 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addNewFoodNoti:) name:kHaveAddOneFoodNoti object:nil];
     
     //监听食材的变化
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reQueryFoodDatas) name:kFoodTableChangedNoti object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDeleteFoodNoti:) name:kFoodTableChangedNoti object:nil];;
 }
 
 
+-(void)receiveDeleteFoodNoti:(NSNotification *)noti{
+    FoodModel *food = noti.object;
+    [self.dataSource enumerateObjectsUsingBlock:^(FoodModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (food.foodid == obj.foodid ) {
+            *stop = YES;
+            [self.dataSource removeObject:obj];
+        }
+    }];
+    for (FoodTableViewController *fvc in self.childViewControllers) {
+        NSLog(@"fvc.foodType =%ld",(long)fvc.foodType);
+        if (fvc.foodType == food.species) {//是这个抽屉里食材的类型
+            //跟新这个类型的数据
+            [fvc refreshData];
+        }
+    }
+}
 /**
  选择了一个食材
 
