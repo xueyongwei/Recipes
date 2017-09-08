@@ -19,6 +19,7 @@
 {
     _food = model;
     _indexPath = indexPath;
+    self.bgImgView.image = [UIImage imageNamed:model.name];
     self.flagImgView.enabled = model.remainingDays<1;
     if (self.flagImgView.enabled) {
         [self.flagImgView setImage:[UIImage imageNamed:@"didExp"] forState:UIControlStateNormal];

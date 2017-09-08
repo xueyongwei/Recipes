@@ -11,6 +11,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tf1;
 @property (weak, nonatomic) IBOutlet UITextField *tf2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomconst;
 
 @end
 
@@ -18,9 +19,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //增加监听，当键盘出现或改变时收出消息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    //增加监听，当键退出时收出消息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     // Do any additional setup after loading the view from its nib.
 }
-
+//当键盘出现或改变时调用
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSNumber *duraValue =[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    self.bottomconst.constant = -height/2;
+    [self.view setNeedsLayout];
+    [UIView animateWithDuration:duraValue.floatValue animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+//当键退出时调用
+- (void)keyboardWillHide:(NSNotification *)aNotification{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+   
+    NSNumber *duraValue =[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    self.bottomconst.constant = 0;
+    [self.view setNeedsLayout];
+    [UIView animateWithDuration:duraValue.floatValue animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

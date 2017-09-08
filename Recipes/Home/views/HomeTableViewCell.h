@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UIButton *flagImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImgView;
 @property (nonatomic,strong) FoodModel *food;
 @property (nonatomic,strong) NSIndexPath *indexPath;
 @property (nonatomic,strong) void(^clickDeleteBtn)(FoodModel *model);

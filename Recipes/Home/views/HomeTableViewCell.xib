@@ -107,6 +107,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="bgImgView" destination="yAz-eF-W3a" id="oOI-lv-9at"/>
                 <outlet property="countLabel" destination="ush-MX-aeh" id="a6y-43-Fof"/>
                 <outlet property="dayLabel" destination="dMh-0A-VIG" id="DPu-rF-py4"/>
                 <outlet property="flagImgView" destination="Bs9-Ks-43l" id="kNl-te-w1u"/>

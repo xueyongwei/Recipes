@@ -88,6 +88,8 @@
     FoodModel *tomato = [FoodModel FoodWithFoodid:10001 Name:@"番茄" species:1 maxDay:5 calorie:19 carbohydrate:4 vitamin:19 protein:1 inRefigerator:YES putRefDate:[NSDate date] amount:3 unit:@"个"];
     [foods addObject:tomato];
     
+    
+    
     FoodModel *eggplant = [FoodModel FoodWithFoodid:10002 Name:@"茄子" species:1 maxDay:6 calorie:21 carbohydrate:3.6 vitamin:5 protein:1.1 inRefigerator:NO putRefDate:[NSDate date] amount:0 unit:@"根"];
     [foods addObject:eggplant];
     
@@ -116,6 +118,9 @@
      */
     FoodModel *pineapple = [FoodModel FoodWithFoodid:10010 Name:@"菠萝" species:4 maxDay:7 calorie:41 carbohydrate:9.5 vitamin:18 protein:0.5 inRefigerator:YES putRefDate:[self dateBeforeTodayWithDays:5] amount:5 unit:@"个"];
     [foods addObject:pineapple];
+    
+    FoodModel *jiao = [FoodModel FoodWithFoodid:10011 Name:@"青椒" species:1 maxDay:5 calorie:19 carbohydrate:4 vitamin:19 protein:1 inRefigerator:YES putRefDate:[NSDate date] amount:3 unit:@"个"];
+    [foods addObject:jiao];
     
     
     return foods;
