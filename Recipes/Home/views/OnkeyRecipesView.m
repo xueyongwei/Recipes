@@ -20,7 +20,7 @@
 }
 - (IBAction)onOnekeyClick:(UIButton *)sender {
     //检查冰箱中是否有食材
-    if ([[DataBaseManager defaultManager] quryAllFoodsInRefigerator].count==0) {
+    if ([DataBaseManager defaultManager].foodsInRefigerator.count==0) {
         UIAlertView *alv = [[UIAlertView alloc]initWithTitle:@"冰箱中没有食材！" message:nil delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
         [alv show];
         return;

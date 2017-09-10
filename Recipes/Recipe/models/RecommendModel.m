@@ -47,6 +47,7 @@
             NSLog(@"ingredients %@, name%@",self.recipe.ingredients ,food.name);
             self.cotainFoodCount +=1;
         }
+        NSLog(@"cotainFoodCount %ld",self.cotainFoodCount);
         //计算保质期对应的推荐指数
         //有一个食材是过期的，都不能选
         self.expireDay *= [self priorotyOfExpdayWithFood:food];
@@ -55,8 +56,9 @@
         self.nutritional += [self nutritionalPriorotyOfCarbohydrate:food.carbohydrate];
         self.nutritional += [self nutritionalPriorotyOfVitamin:food.vitamin];
         self.nutritional += [self nutritionalPriorotyOfProtein:food.protein];
+        NSLog(@"cotain %ld exprireDay %ld nutritional %ld",(long)self.cotainFoodCount,(long)self.expireDay,(long)self.nutritional);
     }
-    NSLog(@"cotain %ld exprireDay %ld nutritional %ld",(long)self.cotainFoodCount,(long)self.expireDay,(long)self.nutritional);
+    NSLog(@"---------------");
     //计算推荐指数（任何一个指数为0，均可导致推荐指数为0）
     self.priority = self.cotainFoodCount*self.expireDay*self.nutritional;
 }
@@ -88,11 +90,12 @@
         if (expDay<3) {//剩余日期不足3天，大幅提高推荐指数
             //让剩余的天数对应的指数大，比如1天对应的是99，2天对用的是98，99*99=9801>98*98=9604,时间越短指数越高
             NSInteger prp = 100-expDay;
-            priorty = prp*prp;//指数级别提升
+            priorty = prp*2;//指数提升
         }else{//时间还早
             priorty = 100-expDay;
         }
     }
+    NSLog(@"priorty = %f",priorty);
     return priorty;
 }
 /**

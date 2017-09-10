@@ -78,7 +78,7 @@
  准备数据
  */
 -(void)prepareData{
-    NSArray *allFoods = [[DataBaseManager defaultManager] quryAllFoodsInRefigerator];
+    NSArray *allFoods = [DataBaseManager defaultManager].foodsInRefigerator;
     
     [self.dataSource removeAllObjects];
     [allFoods enumerateObjectsUsingBlock:^(FoodModel * aFood, NSUInteger idx, BOOL * _Nonnull stop) {

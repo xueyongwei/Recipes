@@ -10,5 +10,5 @@
 
 #import "RecipesDetailViewController.h"
 @interface RecipesTableViewController : UITableViewController
-
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end

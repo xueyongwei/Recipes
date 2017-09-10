@@ -125,7 +125,7 @@
 -(NSMutableArray *)dataSource
 {
     if (!_dataSource) {
-        _dataSource = [NSMutableArray arrayWithArray:[[DataBaseManager defaultManager]quryAllFoodsInRefigerator]];
+        _dataSource = [DataBaseManager defaultManager].foodsInRefigerator;
     }
     return _dataSource;
 }
@@ -134,7 +134,7 @@
  请求食材的数据
  */
 -(void)reQueryFoodDatas{
-     self.dataSource = [NSMutableArray arrayWithArray:[[DataBaseManager defaultManager]quryAllFoodsInRefigerator]];
+//     self.dataSource = [NSMutableArray arrayWithArray:[[DataBaseManager defaultManager]quryAllFoodsInRefigerator]];
     [self.childViewControllers enumerateObjectsUsingBlock:^(FoodTableViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj) {
             [obj refreshData];
@@ -159,8 +159,36 @@
     ring.view.frame = CGRectMake(0, 0, YYScreenSize().width, YYScreenSize().height);
     [self.tabBarController.view addSubview:ring.view];
     
+    //找出选择的食材能做的菜单
+    
+    NSArray *cotainRecs = [RecipersRecomendHelper recipesCotainFoods:self.selectedFoods];
+    NSArray *canMakeRecs = [RecipersRecomendHelper findCanMakeByRefifoodsWithRecipes:cotainRecs];
+    if (canMakeRecs.count==0) {
+        dispatch_after(1.0, dispatch_get_main_queue(), ^{
+            [ring.view removeFromSuperview];
+            UIAlertView *alv = [[UIAlertView alloc]initWithTitle:@"无法给出菜谱" message:@"根据您选择的食材，和冰箱里现有的食材，并不能做出来一道菜" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+            [alv show];
+        });
+      
+    }else{
+        dispatch_after(1.0, dispatch_get_main_queue(), ^{
+            [ring.view removeFromSuperview];
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            RecipesTableViewController *rectv = [sb instantiateViewControllerWithIdentifier:@"RecipesTableViewController"];
+            
+            rectv.dataSource = [NSMutableArray arrayWithArray:canMakeRecs];
+            [self.navigationController pushViewController:rectv animated:YES];
+        });
+        
+    }
+    
+    
+    /*
+    
     //根据选择的食材，推荐生成一个菜谱
     RecipesModel *receip = [RecipersRecomendHelper recommendRecipWithFoods:self.selectedFoods];
+    
     if (receip) {//成功推荐了菜谱
         RecipesDetailViewController *recipesDetailVC = [[RecipesDetailViewController alloc]initWithNibName:@"RecipesDetailViewController" bundle:nil];
         recipesDetailVC.recipe = receip;
@@ -177,7 +205,7 @@
         });
         
     }
-    
+    */
 }
 
 

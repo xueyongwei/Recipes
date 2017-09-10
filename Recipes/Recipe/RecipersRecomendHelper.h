@@ -25,4 +25,20 @@
  @return 菜单
  */
 +(RecipesModel *)recommendRecipWithIntelligentAnalysis;
+
+/**
+ 找到用冰箱里的食材可以做的菜谱
+ 
+ @param recipes 菜谱们
+ @return 想要的菜谱们
+ */
++(NSArray <RecipesModel*>*)findCanMakeByRefifoodsWithRecipes:(NSArray <RecipesModel*>*)recipes;
+
+/**
+ 包含给出食材的菜单们
+ 
+ @param foods 食材们
+ @return 菜单们
+ */
++(NSArray *)recipesCotainFoods:(NSArray <FoodModel *>*)foods;
 @end

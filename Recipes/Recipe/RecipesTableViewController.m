@@ -20,12 +20,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customTableView];
-    
+    if (self.dataSource==nil) {
+        self.dataSource =[RecipesManager defaultManager].allRecipes;
+    }else{
+        [self custonNavi];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+/**
+ 自定义导航
+ */
+-(void)custonNavi{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"naviBack"] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0, 0, 44, 44);
+    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    btn.tintColor = [UIColor whiteColor];
+    [btn addTarget:self action:@selector(backHandle) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *itm = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    UIBarButtonItem *fix = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fix.width = -10;
+    self.navigationItem.leftBarButtonItems = @[fix,itm];
+}
+
+/**
+ 返回到上一层
+ */
+-(void)backHandle{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
@@ -55,13 +81,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [RecipesManager defaultManager].allRecipes.count;
+    return self.dataSource.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecipTableViewCell" forIndexPath:indexPath];
-    RecipesModel *model = [RecipesManager defaultManager].allRecipes[indexPath.row];
+    RecipesModel *model = self.dataSource[indexPath.row];
     cell.titleLabel.text = model.name;
     cell.iconImgView.image = [UIImage imageNamed:model.name];
     cell.bgImgView.image = [UIImage imageNamed:model.name];
@@ -71,7 +97,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecipesModel *model = [RecipesManager defaultManager].allRecipes[indexPath.row];
+    RecipesModel *model = self.dataSource[indexPath.row];
     RecipesDetailViewController *detailVC = [[RecipesDetailViewController alloc]initWithNibName:@"RecipesDetailViewController" bundle:nil];
     detailVC.recipe = model;
     [self.navigationController pushViewController:detailVC animated:YES];

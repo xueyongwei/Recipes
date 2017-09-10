@@ -20,4 +20,9 @@
     }];
     return returnFood;
 }
+
+//-(NSString *)description
+//{
+//    return [NSString stringWithFormat:@"%s:%@",self.name.UTF8String,self.ingredients];
+//}
 @end

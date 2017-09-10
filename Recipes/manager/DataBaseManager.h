@@ -16,6 +16,7 @@
 @interface DataBaseManager : NSObject
 @property (nonatomic,strong) FMDatabaseQueue *dbQueue;
 @property (nonatomic,strong) NSMutableArray *allFoods;
+@property (nonatomic,strong) NSMutableArray *foodsInRefigerator;
 
 /**
  单例，数据库管理器
@@ -35,13 +36,13 @@
  
  @return 食材model数组
  */
--(NSArray *)quryAllFoods;
+//-(NSArray *)quryAllFoods;
 /**
  查询冰箱里的所有的食材
  
  @return 食材model数组
  */
--(NSArray *)quryAllFoodsInRefigerator;
+//-(NSArray *)quryAllFoodsInRefigerator;
 
 /**
  查询冰箱里即将过期的食材

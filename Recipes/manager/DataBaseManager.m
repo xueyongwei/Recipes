@@ -47,6 +47,21 @@
             }
         }
     }];
+    //获取现在数据库里的东西
+    self.allFoods = [NSMutableArray arrayWithArray:[self quryAllFoods]] ;
+    if (self.allFoods.count>0) {
+        NSMutableArray *foodInRef = [[NSMutableArray alloc]init];
+        [self.allFoods enumerateObjectsUsingBlock:^(FoodModel *  obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.inRefigerator) {
+                [foodInRef addObject:obj];
+            }
+        }];
+        
+        self.foodsInRefigerator = foodInRef;
+    }else{
+        NSLog(@"数据库的食材数据是空的，");
+    }
+    NSLog(@"initDataBase end");
 }
 
 
@@ -54,6 +69,7 @@
  创建初始数据，如果表里什么还没有
  */
 -(void)createDateIfNothingIndb:(FMDatabase *)db{
+    NSLog(@"createDateIfNothingIndb begain");
     NSArray *foods = [self customFoodsModel];
     NSString *querySql = [NSString stringWithFormat:@"select * from %@;",kFoodTableName];
     FMResultSet *resultSet = [db executeQuery:querySql];
@@ -61,6 +77,7 @@
         [resultSet close];
         for (FoodModel *food in foods) {
             NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (foodid,name,species,maxDay,calorie,carbohydrate,vitamin,protein,inRefigerator,unit,amount,putRefDate) VALUES (%ld,'%@',%ld,%ld,%ld,%.2f,%.2f,%.2f,%d,'%@',%f,%f)",kFoodTableName,food.foodid,food.name ,food.species,food.maxDay,food.calorie,food.carbohydrate,food.vitamin,food.protein,food.inRefigerator,food.unit,food.amount,[food.putRefDate timeIntervalSince1970]];
+            NSLog(@"准备插入食材 %@",sql);
             BOOL isSuccess =[db executeUpdate:sql];
             NSLog(@"%@", isSuccess ? @"插入食材数据成功" : @"插入食材数据失败");
         }
@@ -225,7 +242,7 @@
             CGFloat vitamin = [result doubleForColumn:@"vitamin"];
             CGFloat protein = [result doubleForColumn:@"protein"];
             BOOL inRefigerator = [result boolForColumn:@"inRefigerator"];
-            NSInteger putRefDateSec = [result longForColumn:@"putRefDate"];
+            double putRefDateSec = [result longForColumn:@"putRefDate"];
             CGFloat amount = [result doubleForColumn:@"amount"];
             NSString *unit = [result stringForColumn:@"unit"];
             model = [FoodModel FoodWithFoodid:foodid Name:name species:species maxDay:maxDay calorie:calorie carbohydrate:carbohydrate vitamin:vitamin protein:protein inRefigerator:inRefigerator putRefDate:[NSDate dateWithTimeIntervalSince1970:putRefDateSec] amount:amount unit:unit];

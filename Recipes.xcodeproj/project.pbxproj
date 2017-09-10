@@ -752,6 +752,7 @@
 				DEVELOPMENT_TEAM = 9H9Y2TUHE4;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Recipes/PrefixHeader.pch";
 				INFOPLIST_FILE = Recipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pub.xyw.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -768,6 +769,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Recipes/PrefixHeader.pch";
 				INFOPLIST_FILE = Recipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pub.xyw.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
